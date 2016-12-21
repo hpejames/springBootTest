@@ -1,0 +1,35 @@
+<div class="row">
+<button type="button" class="btn btn-primary btn-sm" style="margin-bottom:10px;" data-ng-click="addProduct()">商品添加</button>
+<button type="button" class="btn btn-primary btn-sm btn-next" style="margin-bottom:10px;" data-ng-click="editProduct()">商品编辑</button>
+<button type="button" class="btn btn-primary btn-sm btn-next" style="margin-bottom:10px;" data-ng-click="delProduct()">商品删除</button>
+</div>
+
+<div class="row" style="height:640px;">
+    <table class="table table-striped table-bordered" style="margin-bottom:0px;">
+        <thead>
+          <tr class="wo-tbl-title">
+              <th width="6%" class="text-center">选择</th>
+              <th width="17%">商品编号</th>
+              <th width="17%">商品名</th>
+              <th width="10%">买入价格</th>
+              <th width="10%">卖出价格</th>
+              <th width="10%">库存（单位：件）</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="product in products">
+                <td class="text-center">
+                    <input type="radio" name="optionsRadios" id="chooseRadio" value="{{product.id}}">
+                </td>
+                <td>{{product.barCode}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.purchasePrice | currency:"￥ "}}</td>
+                <td>{{product.sellPrice | currency:"￥ "}}</td>
+                <td>{{product.stockNumber}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row text-center">
+    <ul class="pagination"></ul>
+</div>

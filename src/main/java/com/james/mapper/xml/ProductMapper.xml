@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.james.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.james.model.Product" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="bar_code" property="barCode" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="purchase_price" property="purchasePrice" jdbcType="NUMERIC" />
+    <result column="sell_price" property="sellPrice" jdbcType="NUMERIC" />
+    <result column="stock_number" property="stockNumber" jdbcType="INTEGER" />
+    <result column="creater" property="creater" jdbcType="VARCHAR" />
+    <result column="updater" property="updater" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="TIMESTAMP" />
+    <result column="renewal_date" property="renewalDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="selectLineCount" resultType="int">
+    SELECT count(*) FROM 
+  </select>
+
+  <!-- 检索商品信息一览 -->
+  <select id="selectProductList" resultMap="BaseResultMap" >
+    SELECT id, bar_code, name, purchase_price, sell_price, stock_number, 
+       creater, updater, register_date, renewal_date
+    FROM public.product
+  </select>
+</mapper>

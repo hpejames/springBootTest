@@ -1,0 +1,12 @@
+.wo-tbl-title {
+    background-color: #E4E8F5;
+    border-color: #E4E8F5;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #f9f9f9;
+}
+
+.btn-next {
+	margin-left:20px;
+}

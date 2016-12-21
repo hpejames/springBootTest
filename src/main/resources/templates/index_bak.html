@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org" ng-app="myApp">
+<head>
+    <title>My JSP 'MyJsp.jsp' starting page</title>
+
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+    <meta http-equiv="description" content="This is my page"/>
+    <script th:src="@{angular.min.js}"></script>
+    <script>
+        //console.log(angular.fromJson('{"userName":"gaojian", "password":"gaojian123"}'));
+        var app = angular.module('myApp', []);
+        app.controller('MyController', function($scope, $http) {
+            $http({
+                method: 'POST',
+                url: '/restTest',
+                data: {"userName":$scope.userName, "password":$scope.password},
+                headers: {'Content-type': 'application/json', 'Accept': 'application/json'},
+            }).then(function(result) {
+                $scope.userName = result.data.password;
+                $scope.password = result.data.userName;
+                console.log(result);
+            }, function(error) {
+                //console.log(error);
+            });
+        });
+    </script>
+</head>
+<body>
+<div ng-controller="MyController">
+    <input type="text" name="userName" ng-model="userName" />
+    <input type="text" name="password" ng-model="password" />
+</div>
+</body>
+</html>
